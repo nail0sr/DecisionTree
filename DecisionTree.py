@@ -59,7 +59,7 @@ def build_id3Tree(inputs: List[T], split_attributes: List[str], target_attribute
     def splitEntropy(attribute: str) -> float:
         return split_entropy_by(inputs, attribute, target_attribute)
 
-    best_attribute = min(split_attributes, key=split_entropy)
+    best_attribute = min(split_attributes, key=splitEntropy)
     partitions = split_by(inputs, best_attribute)
     new_attributes = [atr for atr in split_attributes if atr!=best_attribute]
     # apply recursively to build the subtrees
